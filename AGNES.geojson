@@ -1,0 +1,29 @@
+{
+"type": "FeatureCollection",
+"name": "AGNES",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "ARD2", "PUNKTNAME": "ard2", "X": 2811214.25, "Y": 1184301.98, "NOWAY": 0, "SECTOR": 5 }, "geometry": { "type": "Point", "coordinates": [ 10.204747498348713, 46.776381230747099 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "ARDE", "PUNKTNAME": "arde", "X": 2811209.61, "Y": 1184302.38, "NOWAY": 0, "SECTOR": 5 }, "geometry": { "type": "Point", "coordinates": [ 10.204686966725866, 46.776386298168291 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "BOU2", "PUNKTNAME": "bou2", "X": 2584282.32, "Y": 1249269.02, "NOWAY": 1, "SECTOR": 1 }, "geometry": { "type": "Point", "coordinates": [ 7.230437065577487, 47.394055029949392 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "BOUR", "PUNKTNAME": "bour", "X": 2584293.74, "Y": 1249277.9, "NOWAY": 1, "SECTOR": 1 }, "geometry": { "type": "Point", "coordinates": [ 7.2305880141032, 47.394135172127783 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "DAV2", "PUNKTNAME": "dav2", "X": 2783527.11, "Y": 1187464.83, "NOWAY": 0, "SECTOR": 5 }, "geometry": { "type": "Point", "coordinates": [ 9.84366344664711, 46.813024597741389 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "DAVO", "PUNKTNAME": "davo", "X": 2783516.01, "Y": 1187452.24, "NOWAY": 0, "SECTOR": 5 }, "geometry": { "type": "Point", "coordinates": [ 9.843513021440204, 46.812914459877291 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "FRI3", "PUNKTNAME": "fri3", "X": 2650681.67, "Y": 1264293.53, "NOWAY": 0, "SECTOR": 2 }, "geometry": { "type": "Point", "coordinates": [ 8.111615918230438, 47.52742425849214 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "FRIC", "PUNKTNAME": "fric", "X": 2650703.33, "Y": 1264293.33, "NOWAY": 0, "SECTOR": 2 }, "geometry": { "type": "Point", "coordinates": [ 8.111903501020551, 47.527420789632345 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "HABG", "PUNKTNAME": "habg", "X": 2656862.29, "Y": 1177632.25, "NOWAY": 1, "SECTOR": 4 }, "geometry": { "type": "Point", "coordinates": [ 8.182774814138073, 46.747456647755705 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "LUZE", "PUNKTNAME": "luze", "X": 2665476.81, "Y": 1213379.52, "NOWAY": 0, "SECTOR": 2 }, "geometry": { "type": "Point", "coordinates": [ 8.300639375633937, 47.068201953593039 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "MAR2", "PUNKTNAME": "mar2", "X": 2571556.84, "Y": 1107917.9, "NOWAY": 1, "SECTOR": 4 }, "geometry": { "type": "Point", "coordinates": [ 7.070693746265296, 46.122153684309588 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "MAR3", "PUNKTNAME": "mar3", "X": 2571556.58, "Y": 1107925.04, "NOWAY": 1, "SECTOR": 4 }, "geometry": { "type": "Point", "coordinates": [ 7.070689948223619, 46.122217900752396 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "MTTI", "PUNKTNAME": "mtti", "X": 2579538.51, "Y": 1246345.01, "NOWAY": 0, "SECTOR": 1 }, "geometry": { "type": "Point", "coordinates": [ 7.167738009019972, 47.367625012343652 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "OALP", "PUNKTNAME": "oalp", "X": 2694527.61, "Y": 1168390.75, "NOWAY": 1, "SECTOR": 5 }, "geometry": { "type": "Point", "coordinates": [ 8.6737203013195, 46.66005874084032 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "PFAN", "PUNKTNAME": "pfan", "X": 2776690.49, "Y": 1265369.57, "NOWAY": 0, "SECTOR": 3 }, "geometry": { "type": "Point", "coordinates": [ 9.784649802938462, 47.515295570383948 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "SAA2", "PUNKTNAME": "saa2", "X": 2589460.4, "Y": 1151589.09, "NOWAY": 0, "SECTOR": 1 }, "geometry": { "type": "Point", "coordinates": [ 7.30130468465641, 46.51552173253959 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "SAAN", "PUNKTNAME": "saan", "X": 2589459.12, "Y": 1151594.44, "NOWAY": 0, "SECTOR": 1 }, "geometry": { "type": "Point", "coordinates": [ 7.301287882795614, 46.515569838608727 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "SANB", "PUNKTNAME": "sanb", "X": 2734103.72, "Y": 1147324.81, "NOWAY": 0, "SECTOR": 5 }, "geometry": { "type": "Point", "coordinates": [ 9.184545221447747, 46.463828284269397 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "SAR2", "PUNKTNAME": "sar2", "X": 2757374.51, "Y": 1205587.12, "NOWAY": 0, "SECTOR": 3 }, "geometry": { "type": "Point", "coordinates": [ 9.507379649247099, 46.98268059545984 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "ZERM", "PUNKTNAME": "zerm", "X": 2622726.09, "Y": 1094473.91, "NOWAY": 0, "SECTOR": 4 }, "geometry": { "type": "Point", "coordinates": [ 7.731993376637111, 46.001441759220846 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "ZIM2", "PUNKTNAME": "zim2", "X": 2602011.98, "Y": 1191774.6, "NOWAY": 0, "SECTOR": 4 }, "geometry": { "type": "Point", "coordinates": [ 7.465026965873747, 46.877090601572306 ] } },
+{ "type": "Feature", "properties": { "OBJEKTART": "AGNES", "Titel": "ZIMM", "PUNKTNAME": "zimm", "X": 2602030.74, "Y": 1191775.03, "NOWAY": 0, "SECTOR": 4 }, "geometry": { "type": "Point", "coordinates": [ 7.465273062162977, 46.877094414511397 ] } }
+]
+}
