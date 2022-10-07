@@ -1,0 +1,739 @@
+/* ============================ */
+/*      style.css               */
+/*      Renas Delibalta         */
+/*      19.04.2021              */
+/* ============================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url("https://use.typekit.net/ivl4dvq.css");
+
+:root {
+    --mainFont: "Ubuntu", sans-serif;
+    --mainFontBold: 700;
+    --mainFontRegular: 400;
+
+    --mainBckgrndColor: #FFE5BB;
+    --mainContrastColor: #E49325;
+    
+    --black: #000000;
+    --unselectedLayer: #c7c7c7;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+p h1 {
+    -webkit-user-select: none;        
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.transition_ease_in_out {
+    transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+}
+
+/* Karte + Kartenelemente */
+#map {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+#map_Style_Selector {
+    display: block;
+    position: fixed;
+    left: 12px;
+    bottom: 50px;
+    width: 60px;
+    height: 60px;
+    background-color: #FFF5E4;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    /* für bzw. wegen iOS*/
+    touch-action: none;
+}
+#map_Style_Selector img {
+    position: relative;
+    transform: translate(-50%);
+    left: 50%;
+    width: 60px;
+    height: auto;
+}
+#compass {
+    z-index: 2;
+    position: fixed;
+    left: 12px;
+    top: 12px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: top .5s ease-in-out;
+    -o-transition: top .5s ease-in-out;
+    -moz-transition: top .5s ease-in-out;
+    -webkit-transition: top .5s ease-in-out;
+}
+#northArrow {
+    position: absolute;
+    width: 60%;
+    height: auto;
+    transform: translate(-50% -50%);
+    left: 20%;
+    top: 20%;
+}
+#northArrowInfo {
+    display: none;
+    z-index: 2;
+    position: fixed;
+    left: 12px;
+    top: 74px;
+    margin-right: 80px;
+    height: auto;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: white;
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontMedium);
+    font-size: 10pt;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    user-select: none;
+}
+
+/* Menu */
+#menuBtn {
+    position: fixed;
+    transform: translate(-50%);
+    left: 50%;
+    bottom: 40px;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background-color: var(--mainBckgrndColor);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+#menuBtn img {
+    position: relative;
+    width: 55%;
+    height: 55%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+.menuContainer {
+    z-index: 2;
+    display: block;
+    position: fixed;
+    left: 0;
+    padding: 0;
+    width: 100%;
+    background-color: var(--mainBckgrndColor);
+}
+
+#menuContainer_Karte {
+    height: 270px;
+    padding-top: 50px;
+    bottom: -350px;
+}
+#menuContainer_Suche {
+    height: 225px;
+    bottom: -230px;
+}
+#menuContainer_AnsichtUndLegende {
+    height: 180px;
+    bottom: -180px;
+}
+#menuContainer_Impressum {
+    padding-top: 0px;
+    height: 70px;
+    bottom: -70px;
+}
+#menuContainer_Sprachen {
+    padding-top: 10px;
+    height: 40px;
+    bottom: -50px;
+}
+
+/* == subContainers */
+
+.subMenuContainers {
+    display: block;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+}
+.downArrow {
+    position: absolute;
+    width: 20px;
+    height: auto;
+    transform: translate(-50%);
+    bottom: 15px;
+    left: 50%;
+    cursor: pointer;
+}
+.closingCross {
+    position: absolute;
+    width: 20px;
+    height: auto;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+#backToMenuBtn {
+    display: none;
+    position: absolute;
+    width: 20px;
+    height: auto;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+#resetSectorSelectorBtn {
+    position: absolute;
+    width: 20px;
+    height: auto;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+#mainMenuCloser {
+    top: 20px;
+    cursor: pointer;
+}
+
+/* == Menu Selectors */
+.menuSelectors {
+    display: block;
+    position: relative;
+    width: 230px;
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontBold);
+    -webkit-text-stroke: .5px var(--mainContrastColor);
+    color: var(--mainBckgrndColor);
+    font-size: 2em;
+    line-height: 1em;
+    left: 30px;
+    cursor: pointer;
+}
+#menuSelector_Impressum {
+    font-size: 1em;
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontLight);
+    color: var(--mainContrastColor);
+    -webkit-text-stroke: 0px;
+}
+.activeMenuSelector {
+    -webkit-text-stroke: 0px;
+    color: var(--mainContrastColor);
+}
+
+/* == Menu Language Selectors */
+.langSelectors {
+    display: inline-block;
+    position: relative;
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontLight);
+    color: var(--mainContrastColor);
+    font-size: 1em;
+    left: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.activeLangSelector {
+    font-weight: var(--mainFontBold);
+}
+
+/* == Suche Container */ 
+#sucheContainer {
+    bottom: -150px;
+    height: 150px;
+}
+#searchFieldTab_fixpoints {
+	display: block;
+	position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+	width: 245px;
+	height: 100%;
+}
+#searchInputTitle {
+	display: inline-block;
+	position: absolute;
+	top: 25px;
+	font-family: var(--mainFont);
+    font-weight: var(--mainFontBold);
+    font-size: 1em;
+}
+#suchInput {
+	display: block;
+	position: absolute;
+	bottom: 60px;
+	width: 245px;
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontBold);
+    font-size: 2em;
+	letter-spacing: 10px;
+	outline: none;
+	border: none;
+	background-color: #F1F1F1;
+	text-align: center;
+}
+#suchInput:focus {
+	outline: none;
+}
+#clearInputBtn {
+    display: none;
+    position: relative;
+    left: calc(100% + 10px);
+    bottom: -55px;
+    height: 35px;
+    width: 35px;
+}
+#clearInputBtn img {
+    height: 35px;
+    width: auto;
+}
+#minimizeBtn {
+    position: relative;
+    bottom: calc(-100% + 35px);
+    left: 15px;
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontBold);
+    font-size: 0.9em;
+    color: #949494;
+    cursor: pointer;
+}
+#minimizeBtn img {
+    width: 9px;
+    height: auto;
+    margin-bottom: 1px;
+    margin-right: 5px;
+}
+
+/* == Ansicht und Legende Container */
+#ansichtUndLegendeContainer {
+    bottom: -600px;
+    height: 450px;
+}
+#legendContainer_content {
+    display: block;
+    position: absolute;
+    padding: 0;
+	transform: translateX(-50%);
+    left: 50%;
+    right: 30px;
+    top: 50px;
+    width: calc(100% - 60px);
+    height: 350px;
+}
+.toggleSwitch_container{
+	display: block;
+	position: relative;
+	height: 35px;
+	width: 100%;
+    margin-bottom: 5px;
+	display: block;
+	align-items: center;
+}
+.legend_checkbox{
+	position: absolute;
+	-webkit-appearance:none;
+	height: 25px;
+	width: 45px;
+	border: 3px solid #55f696;
+    background-color: #55f696;
+	outline: none;
+	cursor: pointer;
+    top: 2.5px;
+	border-radius: 40px;
+}
+.legend_checkbox:before{
+	content: "";
+	position: absolute;
+	margin:auto;
+	top: 0;
+	bottom: 0;
+	transition: 0.3s;
+    height: 13px;
+	width: 13px;
+	background-color: #fff;
+	border-radius: 50%;
+	left: 4px;
+}
+.legend_checkbox:checked{
+	border: 3px solid var(--unselectedLayer);
+    background-color: var(--unselectedLayer);
+}
+.legend_checkbox:checked:before{
+	left: 23px;
+}
+
+#checkbox_eight{
+	position: absolute;
+	-webkit-appearance:none;
+	height: 25px;
+	width: 45px;
+	border: 3px solid #55f696;
+    background-color: #55f696;
+	outline: none;
+	cursor: pointer;
+    top: 2.5px;
+	border-radius: 40px;
+}
+#checkbox_eight:before{
+	content: "";
+	position: absolute;
+	margin:auto;
+	top: 0;
+	bottom: 0;
+	transition: 0.3s;
+    height: 13px;
+	width: 13px;
+	background-color: #fff;
+	border-radius: 50%;
+	left: 4px;
+}
+#checkbox_eight:checked{
+	border: 3px solid #FFC300;
+    background-color: #FFC300;
+}
+#checkbox_eight:checked:before{
+	left: 23px;
+}
+
+.legend_secSel_button {
+    display: flex;
+	position: fixed;
+    left: 0px;
+    bottom: -10px;
+	width: 130px;
+    height: 30px;
+    background-color: #1EA2D1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+	border-radius: 40px;
+}
+.legend_secSel_button span {
+    position: absolute;
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontBold);
+    color: #ffffff;
+    width: calc(100% - 15px);
+    height: 30px;
+    top: 0;
+    left: 0;
+    text-align: center;
+    font-size: 1.3em;
+    line-height: 29px;
+}
+.legend_secSel_button img {
+    position: absolute;
+    height: 15px;
+    width: auto;
+    transform: translate(0%, -50%);
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+}
+#selectedSectorInfo {
+    display: flex;
+	position: absolute;
+    left: 140px;
+    bottom: -10px;
+    font-family: var(--mainFont);
+    color: #000000;
+    height: 30px;
+    font-size: 0.75em;
+    line-height: 15px;
+    text-align: left;
+}
+#titleCurSelSector {
+    display: inline-flex;
+    position: absolute;
+    height: 15px;
+    width: 170px;
+    font-weight: var(--mainFontBold);
+}
+#currSelSectorName {
+    display: inline-flex;
+    position: absolute;
+    top: 15px;
+    width: 170px;
+    height: 15px;
+    font-weight: var(--mainFontRegular);
+}
+.toggleSwitch_container span {
+    display: inline-flex;
+    position: absolute;
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontBold);
+    color: var(--black);
+    font-size: 1em;
+    height: 35px;
+    margin-top: -4px;
+    margin-left: 60px;
+    width: calc(100% - 100px);
+    align-items: center;
+}
+.signatur_box {
+    display: inline-block;
+    position: relative;
+    margin-left: calc(100% - 55px);
+    margin-top: -6px;
+    width: 70px;
+    height: 35px;
+}
+.signatur_box img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    transform: translate(-50%);
+    top: 10%;
+    left: 50%;
+}
+
+
+/* == Impressum Container */
+#impressumContainer {
+    bottom: -900px;
+    height: auto;
+    padding-bottom: 50px;
+}
+#impressumContainer article {
+    font-family: var(--mainFont);
+    padding: 30px 30px 0px 30px;
+    color: #000000;  
+}
+h1 {
+    font-weight: var(--mainFontBold);
+    font-size: 0.9em;
+    line-height: 2em;
+}
+p {
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontLight);
+    font-size: 0.9em;
+    color: #000000;  
+}
+#impressumContainer a {
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontLight);
+    font-size: 0.9em;
+    color: #000000;  
+    text-decoration: none;
+}
+#hyperlinkIcon {
+    display: inline-block;
+    position: absolute;
+    margin-left: 5px;
+    width: 0.7em;
+    height: auto;
+} 
+
+
+/* Sektor Selektor Container */
+#sectorSelectorContainer { 
+    position: fixed;
+    bottom: -500px;
+    height: 300px;
+    background-color: white;
+}
+#sectorMap {
+    position: absolute;
+    height: 330px;
+    width: auto;
+    transform: translate(-50%);
+    top: -5%;
+    left: 50%;
+    z-index: 0;
+}
+#secSelH1 {
+    position: absolute;
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontBold);
+    font-size: 1em;
+    line-height: 2em;
+    width: auto;
+    height: 10px;
+    transform: translate(-50%);
+    left: 50%;
+    top: 15px;
+}
+
+/* ===================================================================================== */
+/* Mapbox Elements */
+/* ===================================================================================== */
+
+.mapboxgl-ctrl-scale {
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontBold);
+}
+.signale_marker {
+    background-image: url('Res/Piktogramme/singale_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.lfp1_marker {
+    background-image: url('Res/Piktogramme/lfp1_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.noway_lfp1_marker {
+    background-image: url('Res/Piktogramme/noway_lfp1_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.lfp1_nextC_marker {
+    background-image: url('Res/Piktogramme/lfp1_nextC_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.noway_lfp1_nextC_marker {
+    background-image: url('Res/Piktogramme/noway_lfp1_nextC_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.noway_signale_marker {
+    background-image: url('Res/Piktogramme/noway_singale_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.agnes_marker {
+    background-image: url('Res/Piktogramme/agnes_pikto.png');
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+.noway_agnes_marker {
+    background-image: url('Res/Piktogramme/noway_agnes_pikto.png');
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+.lv95_dens_marker {
+    background-image: url('Res/Piktogramme/lv95_dens_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.noway_lv95_dens_marker {
+    background-image: url('Res/Piktogramme/noway_lv95_dens_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.lv95_main_marker {
+    background-image: url('Res/Piktogramme/lv95_main_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.noway_lv95_main_marker {
+    background-image: url('Res/Piktogramme/noway_lv95_main_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.trutmann_marker {
+    background-image: url('Res/Piktogramme/trutmann_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.noway_trutmann_marker {
+    background-image: url('Res/Piktogramme/noway_trutmann_pikto.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 400px;
+}  
+.mapboxgl-popup-close-button {
+    padding: 5px;
+    font-family: var(--mainFont);
+    font-weight: var(--mainFontBold);
+}
+.mapboxgl-popup-content{
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+}
+.mapboxgl-popup-content h2 {
+    font-weight: var(--mainFontBold);
+    color: red;
+}
+.mapboxgl-popup-content p {
+    font-weight: var(--mainFontBold);
+    font-size: 10pt;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    color: black;
+}
+.mapboxgl-popup-content a {
+    font-weight: var(--mainFontBold);
+    font-size: 10pt;
+    color: blue;
+    text-decoration: none;
+    outline: none;
+}
+.mapboxgl-popup-content img {
+    display: inline-block;
+    position: absolute;
+    margin-left: 2px;
+    width: 0.9em;
+    height: auto;
+}
+
+/* ===================================================================================== */
+/* Media Queries */
+/* ===================================================================================== */
+
+
+@media screen and (min-width: 690px) {
+    .menuContainer, 
+    .subMenuContainers {
+        width: 500px;
+        transform: translate(-50%);
+        left: 50%;
+    }
+    .subMenuContainers {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+}

@@ -1,0 +1,157 @@
+<!-- ============================ -->
+<!--     index.html               -->
+<!--     Renas Delibalta          -->
+<!--     19.04.2021               -->
+<!-- ============================ -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PNF &#8210; Routenplaner</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, maximum-scale=1.0" user-scalable=no" />
+        <link rel="icon" type="image/png" href="Res/Piktogramme/lfp1_pikto.png">
+
+        <link href="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.css" rel="stylesheet" />        
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+
+        <div id="map" class="transition_ease_in_out">
+            <div id="compass"><img id="northArrow" src="Res/northArrow.png"></div>
+            <span id="northArrowInfo">Tippen Sie auf den Kompass, um ihn zu aktivieren.</span>
+			<div id="map_Style_Selector" class="transition_ease_in_out" onclick="changeMapStyle();">
+                <img id="styleViewer" src="Res/swissImage_picture.png">
+            </div>
+		</div>
+		
+        <div id="menuBtn" class="transition_ease_in_out" onclick="menuBtn_clicked();"><img src="Res/menu_btn.png"></div>
+		
+		<div id="menuContainer_Karte" class="menuContainer transition_ease_in_out">
+            <img class="downArrow" id="mainMenuCloser" src="Res/down_arrow_mainMenu.png" onclick="resetMenuContainer(1,0);">
+            <span id="menuSelector_Karte" class="menuSelectors activeMenuSelector" onclick="menuBtn_clicked();">KARTE</span>
+        </div>
+        <div id="menuContainer_Suche" class="menuContainer transition_ease_in_out">
+            <span id="menuSelector_Suche" class="menuSelectors" onclick="sucheSelector_clicked();">SUCHE</span>
+        </div>
+        <div id="menuContainer_AnsichtUndLegende" class="menuContainer transition_ease_in_out">
+            <span id="menuSelector_AnsichtUndLegende" class="menuSelectors" onclick="ansichtUndLegendeSelector_clicked();">ANSICHT &amp; LEGENDE</span>
+        </div>
+        <div id="menuContainer_Impressum" class="menuContainer transition_ease_in_out">
+            <span id="menuSelector_Impressum" class="menuSelectors" onclick="impressumSelector_clicked();">IMPRESSUM</span>
+        </div>
+
+        <div id="menuContainer_Sprachen" class="menuContainer transition_ease_in_out">
+            <span id="langSelector_DE" class="langSelectors activeLangSelector" onclick="langSelector_clicked('de');">DE</span>
+            <span id="langSelector_FR" class="langSelectors" onclick="langSelector_clicked('fr');">FR</span>
+            <span id="langSelector_IT" class="langSelectors" onclick="langSelector_clicked('it');">IT</span>
+        </div>
+		
+		<!-- ========================================== -->
+		<!-- Untermenü Container -->
+		<!-- ========================================== -->
+		
+		<!-- Suche -->
+		<div id="sucheContainer" class="subMenuContainers transition_ease_in_out">
+		
+			<div id="searchFieldTab_fixpoints" class="transition_ease_in_out">
+				<p id="searchInputTitle">Punktnummer:</p>
+				<input class="transition_ease_in_out" type="text" name="token" id="suchInput" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" maxlength="8" />
+                <div id="clearInputBtn"><img src="Res/clear_icon.png" onclick="clearBtnClicked();"></div>
+			</div>
+            <img class="closingCross" id="backToMenuBtn" onclick="backToMenuBtn();" src="Res/back_icon.png">
+
+            <div id="minimizeBtn" onclick="minimizeSearchTab();"><img src="Res/fixate_icon.png"><span id="minimierenSpan">minimieren</span></div>
+
+            <img class="closingCross" id="closeBtn_searchCont" src="Res/closeing_cross.png" onclick="resetMenuContainer(1,0);">
+            <img class="downArrow" id="downArrow_searchCont" src="Res/down_arrow.png" onclick="resetMenuContainer(0,0);">
+        </div>
+
+		<!-- Ansicht und Legende -->
+		<div id="ansichtUndLegendeContainer" class="subMenuContainers transition_ease_in_out">
+			<div id="legendContainer_content">
+                <div class="toggleSwitch_container">
+                    <input class="legend_checkbox" id="checkbox_one" type="checkbox" onclick="layerCB_clicked(this, lfp1LayerTag);">
+                    <span id="lfp1LayerTag">LFP1 aktueller Zyklus</span>
+                    <div class="signatur_box"><img src="Res/Legende/lfp1_legende.png"></div>
+                </div>
+                <div class="toggleSwitch_container">
+                    <input class="legend_checkbox" id="checkbox_two" type="checkbox" onclick="layerCB_clicked(this, lfp1_nextC_LayerTag);">
+                    <span id="lfp1_nextC_LayerTag">LFP1 nächster Zyklus</span>
+                    <div class="signatur_box"><img src="Res/Legende/lfp1_nextZ_legende.png"></div>
+                </div>
+                <div class="toggleSwitch_container">
+                    <input class="legend_checkbox" id="checkbox_three" type="checkbox" onclick="layerCB_clicked(this, lv95HauptLayerTag);">
+                    <span id="lv95HauptLayerTag">LV95 &#8210; Hauptpunkte</span>
+                    <div class="signatur_box"><img src="Res/Legende/lv95_main_legende.png"></div>
+                </div>
+                <div class="toggleSwitch_container">
+                    <input class="legend_checkbox" id="checkbox_four" type="checkbox" onclick="layerCB_clicked(this, lv95VerdichtLayerTag);">
+                    <span id="lv95VerdichtLayerTag">LV95 &#8210; Verdichtungspunkte</span>
+                    <div class="signatur_box"><img src="Res/Legende/lv95_dens_legende.png"></div>
+                </div>
+                <div class="toggleSwitch_container">
+                    <input class="legend_checkbox" id="checkbox_five" type="checkbox" onclick="layerCB_clicked(this, agnesLayerTag);">
+                    <span id="agnesLayerTag">AGNES Punkte</span>
+                    <div class="signatur_box"><img src="Res/Legende/agnes_legende.png"></div>
+                </div>
+                <div class="toggleSwitch_container">
+                    <input class="legend_checkbox" id="checkbox_six" type="checkbox" onclick="layerCB_clicked(this, signaleLayerTag);">
+                    <span id="signaleLayerTag">Signale</span>
+                    <div class="signatur_box"><img src="Res/Legende/signale_legende.png"></div>
+                </div>
+                <div class="toggleSwitch_container">
+                    <input class="legend_checkbox" id="checkbox_seven" type="checkbox" onclick="layerCB_clicked(this, trutmannLayerTag);">
+                    <span id="trutmannLayerTag">Trutmann</span>
+                    <div class="signatur_box"><img src="Res/Legende/trutmann_legende.png"></div>
+                </div>
+                <div class="toggleSwitch_container">
+                    <span id="farOffRoad_points">Unbefahrbare Punkte</span>
+                    <div class="signatur_box"><img src="Res/Legende/farOffRoad_legende.png"></div>
+                </div>
+
+                <button class="legend_secSel_button" id="button_sectors" type="button" onclick="secktorenSelecktor(0);"><span id="secSelButtonSpan">Sektoren</span><img src="Res/sectorSelector_Arrow.png"></button>
+                <span id="selectedSectorInfo"><span id="titleCurSelSector">Momentan ausgewählt:</span><span id="currSelSectorName">Gesamte Schweiz</span></span>
+            </div>
+            <img class="closingCross" src="Res/closeing_cross.png" onclick="resetMenuContainer(1,0);">
+            <img class="downArrow" src="Res/down_arrow.png" onclick="resetMenuContainer(0,0);">
+        </div>
+		
+        <!-- Sektor Selektor Container -->
+        <div id="sectorSelectorContainer" class="subMenuContainers transition_ease_in_out">
+            <span id="secSelH1">Sektoren:</span>
+            <object id="sectorMap" data="Res/Map/sektorKarte.svg" type="image/svg+xml"></object>
+
+            <img class="closingCross" src="Res/closeing_cross.png" onclick="resetMenuContainer(1,0);">
+            <img class="closingCross" id="resetSectorSelectorBtn" src="Res/back_icon.png" onclick="secktorenSelecktor(1);">
+
+        </div>
+
+		<!-- Impressum -->
+		<div id="impressumContainer" class="subMenuContainers transition_ease_in_out">
+            <article>
+                <h1 id="art_1_h1_impr">Individuelle praktische Arbeit (IPA)</h1>
+                <p id="art_1_p_impr">Diese interaktive Webkartenanwendung, die gedruckten Karten und die Anleitung für die Datennachführung sind das Resultat meiner IPA 2021.</p>
+            </article>
+            <article>
+                <h1>Renas Delibalta</h1>
+                <p id="art_2_p_impr">Lernender Geomatiker EFZ 2017 – 2021<br><br>Bundesamt für Landestopografie swisstopo<br>Seftigenstrasse 264<br>CH-3084 Wabern</p>
+            </article>
+            <article>
+                <h1 id="art_3_h1_impr">Datenquellen:</h1>
+                <p>&copy; swisstopo<br>&copy; MapTiler<br>&copy; OpenStreetMap<br></p>
+                <a target="_blank" href="https://assets.ubuntu.com/v1/81e5605d-ubuntu-font-licence-1.0.txt?_ga=2.49704614.1644561378.1618388275-1839032549.1618388275">Ubuntu Font Licence Version 1.0</a>
+                <img id="hyperlinkIcon" src="Res/hyperlink_icon.png">
+            </article>
+            <img class="closingCross" src="Res/closeing_cross.png" onclick="resetMenuContainer(1,0);">
+            <img class="downArrow" src="Res/down_arrow.png" onclick="resetMenuContainer(0,0);">
+        </div>
+		
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+        <script src="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="translation.js"></script>
+        <script type="text/javascript" src="map_script.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
